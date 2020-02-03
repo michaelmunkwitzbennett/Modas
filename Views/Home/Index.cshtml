@@ -21,8 +21,13 @@
             </tr>
         }
     </table>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <input class="mySpinner" type="number" value="1" min="0" max="10" step="1" />
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -31,8 +36,17 @@
     <script src="~/js/bootstrap.min.js"></script>
     <script>
         $(function () {
-            alert("JQuery is good");
+            console.log('You found me');
+            var str = location.href.substring(location.href.length - 1, location.href.length);
+            console.log(str);
+            $('.mySpinner').val(str);
+            $('.mySpinner').on('change', function () {
+                location.href = "page" + $(this).val();
+                console.log($('.mySpinner').val());
+            });
         });
+
+        $('.mySpinner').inputSpinner()
     </script>
 </body>
 </html>
